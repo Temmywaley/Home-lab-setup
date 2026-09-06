@@ -12,3 +12,12 @@ Installed pfSense as a virtual router between Ubuntu and Kali using VirtualBox's
   ![Ubuntu Internet Connectivity](screenshot/ubuntu-internet-connectivity.png)
   ![Kali Ping pfsense](screenshot/kali-ping-pfsense.png)
   ![Kali Internent Connectivity](screenshot/kali-internet-connectivity.png)
+
+### Day 14: Purple Team Lab (Part 1 - Attack Simulation)
+Simulated an SSH brute-force attack from Kali against Ubuntu -Lab using Hydra.
+- Tool: Hydra v9.7
+- Target: 192.168.1.102:22 (SSH)
+- Result: Successfully compromised credentials in 4 seconds
+- MITRE ATT&CK: T1110.001 (Password Guessing)
+  Detection and response writeup to follow in week 6 once SIEM is built.
+  ![Hydra brute-force sucessful](screenshot/hydra-ssh-bruteforce.png)
