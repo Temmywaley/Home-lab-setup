@@ -6,5 +6,8 @@ Installed pfSense as a virtual router between Ubuntu and Kali using VirtualBox's
 - WAN: DHCP-asigned (10.0.2.x)
 - LAN: Static 192.168.1.1/24, DHCP server enabled for clients
 - Confirmed routing: Ubuntu and Kali both sucessfully ping pfSense's LAN gateway and reach the internet through it.
-  ! [pfSense config] (screenshots/pfsense-lan-wan.png)
-  ! [Sucessful ping] (screenshots/ping-sucessful.png)
+  ![pfSense config](screenshot/pfsense-lan-wan.png)
+  ![Ubuntu ping pfsense](screenshot/ubuntu-ping-pfsense.png)
+  ![Ubuntu Internet Connectivity](screenshot/ubuntu-internet-connectivity.png)
+  ![Kali Ping pfsense](screenshot/kali-ping-pfsense.png)
+  ![Kali Internent Connectivity](screenshot/kali-internet-connectivity.png)
