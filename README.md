@@ -20,4 +20,19 @@ Simulated an SSH brute-force attack from Kali against Ubuntu -Lab using Hydra.
 - Result: Successfully compromised credentials in 4 seconds
 - MITRE ATT&CK: T1110.001 (Password Guessing)
   Detection and response writeup to follow in week 6 once SIEM is built.
+  
   ![Hydra brute-force sucessful](screenshot/hydra-ssh-bruteforce.png)
+
+### Day 20: Wireshark pcap Analysis
+Analyzed a real-world training pcap to identify anomalous Active Directory Replication traffic.
+- Source: 172.16.8.53 (workstation, hostname registered as Desktop-snlv63k via NBNS)
+- Target: 172.16.8.8 (domain controller)
+- Finding: Repeated DRSUAPI DsBind/DsCrackedNames calls from a workstation to a DC-abnormal, since AD replication should only occur DC-to -DC
+- MITRE ATT&CK: T1087.002 (Account Discovery: Domain Account)
+- Source: malware-traffic-analysis.net (2026-08-09 exercise)
+
+  ![Protocol Hierarchy](screebshot/pcap-protocol-hierarchy1.png)
+  
+  ![DRSUAPI traffic](screenshot/pcap-drsuapi-filter.png)
+  ![Hostname discovery](screenshot/pcap-nbns-hostname.png)
+  
