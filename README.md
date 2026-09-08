@@ -31,8 +31,8 @@ Analyzed a real-world training pcap to identify anomalous Active Directory Repli
 - MITRE ATT&CK: T1087.002 (Account Discovery: Domain Account)
 - Source: malware-traffic-analysis.net (2026-08-09 exercise)
 
-  ![Protocol Hierarchy](screebshot/pcap-protocol-hierarchy1.png)
-  
+  ![Protocol Hierarchy](screenshot/pcap-protocol-hierarchy1.png)
+  ![Protocol Hierarchy](screenshot/pcap-protocol-hierarchy2.png)
   ![DRSUAPI traffic](screenshot/pcap-drsuapi-filter.png)
   ![Hostname discovery](screenshot/pcap-nbns-hostname.png)
   
