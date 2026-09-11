@@ -36,3 +36,16 @@ Analyzed a real-world training pcap to identify anomalous Active Directory Repli
   ![DRSUAPI traffic](screenshot/pcap-drsuapi-filter.png)
   ![Hostname discovery](screenshot/pcap-nbns-hostname.png)
   
+### Day 27-28: VLAN Segmentation and Network Isolation
+Configured 802.1q VLANS on pfSense to segment Ubuntu ("Workstation, "VLAN 10) and Kali ("RedTeam, "VLAN 20) into isolated network zones with firewall-enforced inter-VLAN restrictions.
+- Created VLAN-tagged sub-interfaces on pfSense (em1.10, em1.20) with seperate subnets, DHCP pools, and firewall rulesets per zone.
+- Configured Linux VLAN tagging on both VMs (802.1Q kernel module) so guest traffic correctly tagged with the matching VLAN ID
+- Implemented a Block rule (RedTeam \u2192 Workstation net) above a Pass rule (RedTeam \ u2192 Any0, enforcing one-way isolation while preserving internet access.
+
+**Troubleshooting:** Intial testing shiwed cross-VLAN trafic still passing despite a correctly-ordered block rule. Diagnosis via 'ip route' on Kali revealed a legacy untagged interface route still active alongside the new VLAN-tagged interface, causing traffic to bypass pfSense's VLAN enforcement entirely. Resolved by removing the stale default route, forcing all traffic through the tagged interface where firewall rules correctly applied.
+
+**Result:** Confirmed RedTeam VLAN fully isolated from Worksataions VLAN (100% packet loss cross-VLAN) while retaining internet access (0% packet loss to 8.8.8.8)
+
+  ![RedTeam firewall rules](screenshot/vlan-redteam-firewall-rules.png)
+  ![Cross-VLAN blocked](screenshot/vlan-crossvlan-blocked.png)
+  ![Internet still works](screenshot/vlan-internet-still-works.png)
