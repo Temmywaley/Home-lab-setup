@@ -49,3 +49,18 @@ Configured 802.1q VLANS on pfSense to segment Ubuntu ("Workstation, "VLAN 10) an
   ![RedTeam firewall rules](screenshot/vlan-redteam-firewall-rules.png)
   ![Cross-VLAN blocked](screenshot/vlan-crossvlan-blocked.png)
   ![Internet still works](screenshot/vlan-internet-still-works.png)
+
+  ### Day 34-35: SIEM Deployment (Windows Server, Sysmon, Splunk)
+  Built a Window Server 2022Active Directory Domain controller and deployed a full log pipeline into Splunk, laying the groundwork for detection work trying back to the Day 14 attack simulation.
+  - Installed Windows Server 2022 and promoted it to a domain controller (Active Directory Domain Service, Domain: lab.local)
+  - Installed Sysmon using the SwiftOnSecurity community configuration for high-fidelity process creation, network connection, and file activity logging
+  - Deployed Splunk Enteerprise on Ubuntu as the SIEM indexer/search platfoem
+  - Installed the Splunk Universal Forwarder on Windows Server and configured it (via outputs.conf) to ship Sysmon and Windows Events Logs to Splunk over port 9997
+  - Verified end-to-end log flow: Sysmon events generated on Windows are now searchable in Splunk in near real time.
+
+**Result:** A working SIEM pipeline (Windows DC + Sysmon\u2192 Universal Forwarder \u2192 Splunk) ready to support detection engineering and log analysis in upcoming labs.
+![AD Domain Controller](screenshot/siem-ad-domain.png)
+![Sysmon running](screenshot/siem-sysmon-running.png)
+![Splunk receiving forwarder data](screenshot/siem-splunk-receiving.png)
+![Splunk events indexed](screenshot/siem-splunk-events.png)
+
