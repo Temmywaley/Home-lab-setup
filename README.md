@@ -64,3 +64,14 @@ Configured 802.1q VLANS on pfSense to segment Ubuntu ("Workstation, "VLAN 10) an
 ![Splunk receiving forwarder data](screenshot/siem-splunk-receiving.png)
 ![Splunk events indexed](screenshot/siem-splunk-events.png)
 
+### Day 40: SOC Overview
+
+**Dashboard:** Built a "SOC Overview" dashboard in Splunk with three panels
+\u2014 Failed Login Attempts (EventCode 4625), Process Creation Activity
+(Sysmon EventCode 1), and PowerShell Execution \u2014 giving a live, at-a-glance
+view of the kind of activity a Tier 1 SOC analyst monitors daily.
+
+![SOC Overview dashboard](screenshot/siem-soc-overview-dashboard.png)
+![SOC Overview dashboard](screenshot/siem-soc-overview-dashboard2.png)
+![SOC Overview dashboard](screenshot/siem-soc-overview-dashboard3.png)
+
